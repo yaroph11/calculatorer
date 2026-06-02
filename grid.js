@@ -1,7 +1,17 @@
-const grid = document.getElementById("grid");
+import { buttons } from "./buttons.js";
 
-for (let i = 1; i <= 200; i++) {
+const grid = document.getElementById("grid");
+const mathInput = document.getElementById("mathInput");
+
+for (const item of buttons) {
   const button = document.createElement("button");
-  button.textContent = i;
+
+  button.textContent = item.text;
+
+  button.addEventListener("click", () => {
+    mathInput.value += item.value;
+    mathInput.focus();
+  });
+
   grid.appendChild(button);
 }
